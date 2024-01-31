@@ -46,13 +46,93 @@ namespace EjercicioDavidProgramacion.Servicios
         }
         public void modificarCliente(List<ClienteDto> listaClientesAntigua)
         {
+            MenuInterfaz mI = new MenuImplementacion();
+            bool cerrarMenu = false;
+            int opcion = 0;
             string dni = pedirDNI();
+            foreach (ClienteDto cliente in listaClientesAntigua)
+            {
+                if (cliente.DniCliente.Equals(dni)) 
+                {
+                    Console.WriteLine("[INFO] - El cliente a sido encontrado y esta validado");
+                    if (cliente.Concedido.Equals(true))
+                    {
+                        Console.WriteLine("[INFO] - El cliente esta validado");
+                        opcion = mI.mostrarMenuYSeleccionModificaciones();
+                        switch (opcion) 
+                        {
+                            case 0:
+                                cerrarMenu= true;
+                                break;
+                            case 1:
+                                Console.WriteLine("Introduzca el nuevo DNI:");
+                                string nuevoDNI=Console.ReadLine();
+                                cliente.DniCliente = nuevoDNI;
+                                break;
+                            case 2:
+                                Console.WriteLine("Introduzca el nuevo nombre:");
+                                string nuevoNombre = Console.ReadLine();
+                                cliente.NombreCliente = nuevoNombre;
+                                break;
+                            case 3:
+                                Console.WriteLine("Introduzca los nuevos apellidos:");
+                                string nuevosApellidos = Console.ReadLine();
+                                cliente.ApellidosCliente = nuevosApellidos;
+                                break;
+                            case 4:
+                                Console.WriteLine("Introduzca el nuevo telefono:");
+                                int nuevoTelefono = Convert.ToInt32(Console.ReadLine());
+                                cliente.TelefonoCliente = nuevoTelefono;
+                                break;
+                            case 5:
+                                Console.WriteLine("Introduzca el nuevo numero de seguridad social:");
+                                int nuevoNumeroSS = Convert.ToInt32(Console.ReadLine());
+                                cliente.NumeroSS = nuevoNumeroSS;
+                                break;
+                            case 6:
+                                Console.WriteLine("Introduzca el nuevo color del coche:");
+                                string nuevoColor = Console.ReadLine();
+                                cliente.ColorCoche = nuevoColor;
+                                break;
+                            case 7:
+                                Console.WriteLine("Introduzca el nuevo modelo del coche:");
+                                string nuevoModelo = Console.ReadLine();
+                                cliente.ModeloCoche = nuevoModelo;
+                                break;
+                            default:
+                                Console.WriteLine("[INFO] - La opcion introducida no coincide con ninguna opcion mostrada anteriormente");
+                                break;
+                        }
+                    }
+                    else 
+                    {
+                        Console.WriteLine("[INFO] - El cliente no ha sidi validado");
+                    }
+                
+                }
+                else 
+                {
+                    Console.WriteLine("[INFO] - El cliento no ha sido encontrado.");
+                }
+            }
         }
 
 
         public void validarCliente(List<ClienteDto> listaClientesAntigua)
         {
-            throw new NotImplementedException();
+            string dni=pedirDNI();
+            foreach (ClienteDto cliente in listaClientesAntigua) 
+            {
+                if (cliente.DniCliente.Equals(dni))
+                {
+                    Console.WriteLine("[INFO] - El cliente ha sido encontrado");
+                    cliente.Concedido = true;
+                }
+                else 
+                {
+                    Console.WriteLine("[INFO] - El cliente no ha sido encontrado");
+                }
+            }
         } 
         
         /// <summary>

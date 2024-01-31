@@ -18,5 +18,12 @@ namespace EjercicioDavidProgramacion.Servicios
         /// </summary>
         /// <returns></returns>
         public int mostrarMenuYSeleccion();
+
+        /// <summary>
+        /// Metodo que muestra el menu de modificaciones del cliente
+        /// irodhan -> 31/01/2024
+        /// </summary>
+        /// <returns></returns>
+        public int mostrarMenuYSeleccionModificaciones();
     }
 }

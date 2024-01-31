@@ -27,5 +27,25 @@ namespace EjercicioDavidProgramacion.Servicios
             opcion = Console.ReadKey(true).KeyChar - ('0');
             return opcion;
         }
+
+        public int mostrarMenuYSeleccionModificaciones()
+        {
+            int opcion = 0;
+            Console.WriteLine("|-----------------------------------|");
+            Console.WriteLine("|        Menú modificaciones        |");
+            Console.WriteLine("|___________________________________|");
+            Console.WriteLine("| 0. Cerrar menu                    |");
+            Console.WriteLine("| 1. DNI                            |");
+            Console.WriteLine("| 2. Nombre                         |");
+            Console.WriteLine("| 3. Apellidos                      |");
+            Console.WriteLine("| 4. Telefono                       |");
+            Console.WriteLine("| 5. Numero seguridad social        |");
+            Console.WriteLine("| 6. Color                          |");
+            Console.WriteLine("| 7. Modelo                         |");
+            Console.WriteLine("|___________________________________|");
+            Console.WriteLine("\nIntroduzca la opcion deseada;");
+            opcion = Console.ReadKey(true).KeyChar - ('0');
+            return opcion;
+        }
     }
 }
